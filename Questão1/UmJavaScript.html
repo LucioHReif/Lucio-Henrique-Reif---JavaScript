@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questão 1</title>
+</head>
+
+<body>
+    <section>
+        <div id="texto">Texto</div>
+    </section>
+    <script>
+        // 1 - Solicitar a inserção de 5 números, ao final, imprimir os números pares, números ímpares e a média geral desses números.
+        let numeros = [];
+        let pares = [];
+        let impares = [];
+        let soma = 0;
+
+        for (let i = 0; i < 5; i++) {
+            let numero = parseInt(prompt("Digite um número:"));
+            numeros.push(numero);
+
+            if (numero % 2 == 0) {
+                pares.push(numero);
+            } else {
+                impares.push(numero);
+            }
+
+            soma += numero;
+        }
+
+        let media = soma / numeros.length;
+        const texto = document.getElementById('texto');
+        texto.innerHTML = '';
+        texto.innerHTML += `<p>Os números pares são: ${pares}.</p>`;
+        texto.innerHTML += `<p>Os números ímpares são: ${impares}.</p>`;
+        texto.innerHTML += `<p>A média geral é: ${media}.</p>`;
+        
+    </script>
+</body>
+
+</html>
