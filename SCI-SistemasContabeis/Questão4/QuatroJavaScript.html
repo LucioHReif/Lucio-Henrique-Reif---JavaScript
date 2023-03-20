@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questão 4</title>
+</head>
+
+<body>
+    <section>
+        <div id="texto">Texto</div>
+    </section>
+    <script>
+        // 4- Criar um vetor de cinco posições, solicitar  cinco números e ao fim, imprimir o valor apresentado na posição três.
+        let numeros = [];
+
+        for (let i = 0; i < 5; i++) {
+            let numero = parseInt(prompt("Digite um número:"));
+            numeros.push(numero);
+        }
+        const texto = document.getElementById('texto');
+        texto.innerHTML = '';
+        texto.innerHTML += `<p>O valor da posição três é o número: ${numeros[2]}.</p>`;
+        //Vetor:       0           1           2           3           4
+        //Posição:  Posição1    Posição2    Posição3    Posição4    Posição5
+
+        /* Outra forma para resolver a questão:
+        const vetor = Array(5)
+        posicao = 0;
+        for (let i = 0; i < 5; i++) {
+            vetor[i] = parseInt(prompt("Digite um número:"));
+            if (vetor[i] > vetor[posicao]) {
+                posicao = i;
+            }
+        }
+        const texto = document.getElementById('texto');
+        texto.innerHTML = '';
+        texto.innerHTML += `<p>O valor da posição três é o número: ${vetor[2]}.</p>`;  
+        ----------------------------------------------------------------------------------------------------------------------------------------
+        Outra forma:
+
+        let vetor = new Array(5);
+        for(let i = 0; i < 5; i++){
+        vetor[i] = prompt("Digite um número:");
+        }
+        alert(`O valor da posição três é o número: ${vetor[2]}.`)
+
+        ou usando o innerHTml para apresentar os resultados:
+
+        const texto = document.getElementById('texto');
+        texto.innerHTML = '';
+        texto.innerHTML += `<p>O valor da posição três é o número: ${vetor[2]}.</p>`; */
+
+    </script>
+</body>
+
+</html>

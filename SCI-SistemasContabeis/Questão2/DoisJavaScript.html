@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questão 2</title>
+</head>
+
+<body>
+    <section>
+        <div id="texto">Texto</div>
+    </section>
+    <script>
+        // 2 - Solicitar 5 números, ao fim, imprimir o número maior e o número menor.
+        
+        var numbers = [];
+        for (let i = 0; i < 5; i++) {
+            let numero = parseInt(prompt("Digite um número:"));
+            numbers.push(numero);
+            var max = Math.max.apply(null, numbers);
+            var min = Math.min.apply(null, numbers);
+        }
+
+        const texto = document.getElementById('texto');
+        texto.innerHTML = '';
+        texto.innerHTML += `<p>O maior valor é: ${max}.</p>`
+        texto.innerHTML += `<p>O menor valor é: ${min}.</p>`;
+
+        /*  Outra forma:
+        
+            function menorMaior () {
+                const vetor = Array(5)
+                let maiorNumero = 0;
+                let menorNumero = 0;
+                for (let i=0; i<5; i++) {
+                    vetor[i] = parseInt(prompt("Digite um número:"));
+                    if (vetor[i] > vetor[maiorNumero]) {
+                        maiorNumero = i;
+                    } else if (vetor[i] < vetor[menorNumero]) {
+                        menorNumero = i;
+                    }
+                }
+                const texto = document.getElementById('texto');
+                texto.innerHTML = '';
+                texto.innerHTML += `<p>O maior número é: ${vetor[maiorNumero]}.</p>`;
+                texto.innerHTML += `<p>O menor número é: ${vetor[menorNumero]}.</p>`;
+            } 
+            menorMaior();     
+            ------------------------------------------------------------------------------------
+            Outra alternativa: 
+
+            let numeros = [];
+            for (let i = 0; i < 5; i++) {
+            let numero = parseFloat(prompt("Digite o " + (i+1) + "º número:"));
+            numeros.push(numero);
+            }
+
+
+            let numeroMaior = numeros[0];
+            let numeroMenor = numeros[0];
+
+            for (let i = 1; i < 5; i++) {
+            if (numeros[i] > numeroMaior) {
+            numeroMaior = numeros[i];
+            }
+
+            if (numeros[i] < numeroMenor) {
+            numeroMenor = numeros[i];
+            }
+            }
+            alert(`O maior número é: ${numeroMaior}`);
+            alert(`O menor número é ${numeroMenor}`);           */ 
+
+    </script>
+</body>
+
+</html>

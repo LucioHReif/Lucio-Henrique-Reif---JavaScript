@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questão 5</title>
+</head>
+
+<body>
+    <section>
+        <div id="texto">ALUNOS</div>
+    </section>
+    <script>
+        /* 5 - Crie uma matriz bidimensional. Deverá ser solicitado três nomes de alunos e quatro notas, após solicitação dos nomes e das 
+        notas deverá ser impresso os nomes acompanhados da média geral de cada aluno, deverá ser impresso também o nome do aluno que obteve 
+        a maior média e o nome do aluno que obteve a menor média.              */
+
+        /* Nesse código só tive problemas para imprimir o nome e as notas de cada aluno pelo innerHTML. 
+        Infelizmente só consegui imprimir através do alert. Mas o aluno com maior e menor média consegui fazer pelo innerHTML.  */
+
+        let alunos = [];
+        for (let i = 0; i < 3; i++) {
+            let nome = prompt("Digite o nome do aluno:");
+            let notas = [];
+
+            for (let j = 0; j < 4; j++) {
+                let nota = parseFloat(prompt("Digite a nota " + (j + 1) + " de " + nome + ":"));
+                notas.push(nota);
+            }
+            alunos.push([nome, notas]);
+        }
+        let maiorMedia = 0;
+        let menorMedia = Infinity;
+        let alunoMaiorMedia = "";
+        let alunoMenorMedia = "";
+
+        for (let i = 0; i < 3; i++) {
+            let nome = alunos[i][0];
+            let notas = alunos[i][1];
+            let media = (notas[0] + notas[1] + notas[2] + notas[3]) / 4;
+
+            alert("Aluno: " + nome);
+            alert("Média: " + media.toFixed(2));
+
+            if (media > maiorMedia) {
+                maiorMedia = media;
+                alunoMaiorMedia = nome;
+            }
+            if (media < menorMedia) {
+                menorMedia = media;
+                alunoMenorMedia = nome;
+            }
+
+        }
+        const texto = document.getElementById('texto');
+        texto.innerHTML += `<p>O aluno que obteve a maior média foi: ${alunoMaiorMedia}.</p>`
+        texto.innerHTML += `<p>O aluno que obteve a menor média foi: ${alunoMenorMedia}.</p>`;
+
+        /* Outra maneira que tentei fazer:
+        Nesse exemplo eu busquei imprimir o nome do aluno e as suas respectivas notas. Porém não consegui fazer a média dos alunos, e assim,
+        também não consegui comparar as médias e verificar qual o aluno que obteve a maior e menor média. Faltou pouco...
+
+        var notas = [];
+        for (let i = 1; i <= 3; i++) {
+            let aluno = prompt('Nome do aluno: ');
+            notas.push({ nome: aluno });
+            for (let y = 1; y < 5; y++) {
+                notas[i - 1]["Nota" + y] = Number(prompt(`${y}° nota do aluno: `));                
+            }
+            
+        }
+        let media = (notas[0] + notas[1] + notas[2] + notas[3]) / notas.length;
+        notas.forEach(function (e) {
+            let texto = `<strong>Aluno:</strong> ${e.nome}<br>
+            Nota 1: ${e["Nota" + 1]}<br>
+            Nota 2: ${e["Nota" + 2]}<br>
+            Nota 3: ${e["Nota" + 3]}<br>
+            Nota 4: ${e["Nota" + 4]}<br>
+            Média Geral do aluno: ${media}<br>
+            O aluno que obteve a maior média foi: ${status}<br>
+            O aluno que obteve a menor média foi: ${status}<br>`;
+            document.write(texto);  
+        });*/
+
+    </script>
+</body>
+
+</html>
